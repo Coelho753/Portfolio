@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Gu Coelho</title>
+  <link rel="stylesheet" href="port.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+  <header>
+    <img src="perfil_sem_fundo.jpg" alt="Foto de Perfil" class="foto-perfil">
+    <h1 class="texto-apresentacao">GUSTAVO COELHO</h1>
+    <p>Bem-vindo ao Meu Portfólio</p>
+    <button id="theme-toggle">🌞 Modo Claro</button>
+  </header>
+
+  <main>
+    <section class="introdução">
+      <h2>Desenvolvedor Python e Web</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam aliquid, sunt voluptatibus natus libero
+        aspernatur animi optio officiis pariatur cupiditate architecto accusamus ducimus nulla quam. Autem officia
+        repellendus dolores accusantium.</p>
+    </section>
+
+    <section class="projeto">
+      <h2>Projetos</h2>
+      <div class="grid-projetos">
+
+        <div class="card">
+          <h3>Projeto 1</h3>
+          <div class="detalhes">
+            <p>Esse projeto foi feito com HTML, CSS e JavaScript.</p>
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis saepe aliquam odit est architecto
+              nam. Neque impedit debitis fugiat id magnam placeat ipsa facilis sit, voluptas numquam blanditiis hic
+              cupiditate.</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Projeto 2</h3>
+          <div class="detalhes">
+            <section class="playstation-showcase">
+              <div class="ps-container">
+                <div class="neon-text" id="typing-text"></div>
+                <img src="p_sem_fundo.png" alt="PlayStationp" class="controle-p" />
+                <img src="s_sem_fundo.png" alt="PlayStations" class="controle-s" />
+                <canvas id="ps-particulas"></canvas>
+              </div>
+            </section>
+          </div>
+        </div>
+
+
+        <div class="card">
+          <h3>Projeto 3</h3>
+          <div class="detalhes">
+            <p>Esse projeto foi feito com HTML, CSS e JavaScript.</p>
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, aut obcaecati perspiciatis
+              aliquam accusantium delectus, cupiditate minus dolore ad explicabo at deserunt fuga cum sit vel nobis nisi
+              error ea.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contato">
+      <h2>CONTATO</h2>
+      <form>
+        <input type="text" placeholder="Seu nome" required />
+        <input type="email" placeholder="Seu e-mail" required />
+        <textarea placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+
+      <div class="redes-sociais">
+        <a href="https://github.com/seuusuario" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/gustavo-coelho-da-silva-grunauer-399a41324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          target="_blank">LinkedIn</a>
+        <a href="mailto:seuemail@email.com">Email</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <canvas id="canvas-raio"></canvas>
+  <script src="port.js"></script>
+
+
+</body>
+
+<canvas id="marCanvas"></canvas>
+
+</html>
