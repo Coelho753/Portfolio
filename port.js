@@ -238,8 +238,8 @@ window.addEventListener('scroll', () => {
 });
 
 
-let funcionarios = [];
-let idGlobal = 5279235;
+let funcionarios = JSON.parse(localStorage.getItem("funcionarios")) || [];
+let idGlobal = parseInt(localStorage.getItem("ultimoId")) || 5279235;
 
 function mostrarCadastro() {
   document.getElementById("conteudo").innerHTML = `
@@ -266,6 +266,9 @@ function cadastrarFuncionario() {
   };
 
   funcionarios.push(funcionario);
+  localStorage.setItem("funcionarios", JSON.stringify(funcionarios));
+  localStorage.setItem("ultimoId", idGlobal);
+
   alert(`Funcionário ${nome} cadastrado com sucesso!`);
   mostrarCadastro();
 }
@@ -289,19 +292,13 @@ function consultarTodos() {
 
 function consultaId() {
   const id = parseInt(prompt("Digite o ID do funcionário:"));
-
-  if (isNaN(id)) {
-    alert("ID inválido.");
-    return;
-  }
+  if (isNaN(id)) return alert("ID inválido.");
 
   const func = funcionarios.find(f => f.id === id);
-
   document.getElementById("resultado").innerHTML = func
     ? `<p>ID: ${func.id}<br>Nome: ${func.nome}<br>Setor: ${func.setor}<br>Salário: R$${func.salario}</p>`
     : "Funcionário não encontrado.";
 }
-
 
 function consultaSetor() {
   const setor = prompt("Digite o setor:");
@@ -325,6 +322,7 @@ function removerFuncionario() {
   const index = funcionarios.findIndex(f => f.id === id);
   if (index !== -1) {
     funcionarios.splice(index, 1);
+    localStorage.setItem("funcionarios", JSON.stringify(funcionarios));
     alert("Funcionário removido com sucesso.");
   } else {
     alert("ID não encontrado.");
@@ -332,9 +330,33 @@ function removerFuncionario() {
   mostrarRemocao();
 }
 
+// Impedir que o clique nos botões feche o card
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".card .detalhes").forEach(detalhe => {
+    detalhe.addEventListener("click", e => e.stopPropagation());
+  });
+});
 
+// Mostrar e animar cards ao clicar (mantido)
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", (event) => {
+    const ignorar = ["BUTTON", "INPUT", "TEXTAREA", "SELECT", "LABEL"];
+    if (
+      ignorar.includes(event.target.tagName) ||
+      event.target.closest("#conteudo") ||
+      event.target.closest(".detalhes")
+    ) {
+      event.stopPropagation();
+      return;
+    }
 
-
+    card.classList.toggle("mostrar");
+    if (card.classList.contains("mostrar")) {
+      card.classList.add("eletrizando");
+      setTimeout(() => card.classList.remove("eletrizando"), 1400);
+    }
+  });
+});
 
 
 
