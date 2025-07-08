@@ -107,25 +107,48 @@ function raioEmCard() {
 // ⏲️ Repetir
 setInterval(raioEmCard, 3500);
 
+
+
+
 // Revelar e ativar clique dos cards
-window.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".card").forEach(card => {
-    card.classList.add("revelado");
+// Revelar cards apenas ao rolar a página
+function revelarCardsScroll() {
+  const cards = document.querySelectorAll(".card");
+  const alturaTela = window.innerHeight;
 
-    card.addEventListener("click", () => {
-      card.classList.toggle("mostrar");
+  cards.forEach(card => {
+    const distanciaTop = card.getBoundingClientRect().top;
+    if (distanciaTop < alturaTela - 50) {
+      card.classList.add("revelado");
+    }
+  });
+}
 
-      // Só aplica a animação se estiver sendo aberto
-      if (card.classList.contains("mostrar")) {
-        card.classList.add("eletrizando");
+window.addEventListener("scroll", revelarCardsScroll);
+window.addEventListener("DOMContentLoaded", revelarCardsScroll);
 
-        // Remove após a animação
-        setTimeout(() => card.classList.remove("eletrizando"), 1400);
-      }
-    });
+// Permitir abrir e fechar detalhes do card ao clicar
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", (event) => {
+    // Evita que cliques em botões, inputs ou dentro da div "conteudo" fechem o card
+    const ignorar = ["BUTTON", "INPUT", "TEXTAREA", "SELECT"];
+    if (
+      ignorar.includes(event.target.tagName) ||
+      event.target.closest("#conteudo")
+    ) {
+      return; // Não faz nada
+    }
 
+    card.classList.toggle("mostrar");
+
+    if (card.classList.contains("mostrar")) {
+      card.classList.add("eletrizando");
+      setTimeout(() => card.classList.remove("eletrizando"), 1400);
+    }
   });
 });
+
+
 
 
 
@@ -213,6 +236,107 @@ window.addEventListener('scroll', () => {
   texto.style.opacity = 1 - progress;
   texto.style.transform = `translateX(${progress * 40}px)`; // move um pouco
 });
+
+
+let funcionarios = [];
+let idGlobal = 5279235;
+
+function mostrarCadastro() {
+  document.getElementById("conteudo").innerHTML = `
+    <h2>Cadastrar Funcionário</h2>
+    <input id="nome" placeholder="Nome"><br>
+    <input id="setor" placeholder="Setor"><br>
+    <input id="salario" placeholder="Salário"><br>
+    <button onclick="cadastrarFuncionario()">Salvar</button>
+  `;
+}
+
+function cadastrarFuncionario() {
+  const nome = document.getElementById("nome").value;
+  const setor = document.getElementById("setor").value;
+  const salario = document.getElementById("salario").value;
+
+  if (!nome || !setor || !salario) return alert("Preencha todos os campos!");
+
+  const funcionario = {
+    id: idGlobal++,
+    nome,
+    setor,
+    salario
+  };
+
+  funcionarios.push(funcionario);
+  alert(`Funcionário ${nome} cadastrado com sucesso!`);
+  mostrarCadastro();
+}
+
+function mostrarConsulta() {
+  document.getElementById("conteudo").innerHTML = `
+    <h2>Consultar Funcionário</h2>
+    <button onclick="consultarTodos()">Todos</button>
+    <button onclick="consultaId()">Por ID</button>
+    <button onclick="consultaSetor()">Por Setor</button>
+    <div id="resultado"></div>
+  `;
+}
+
+function consultarTodos() {
+  const res = funcionarios.map(f => `
+    <p>ID: ${f.id}<br>Nome: ${f.nome}<br>Setor: ${f.setor}<br>Salário: R$${f.salario}</p><hr>
+  `).join('');
+  document.getElementById("resultado").innerHTML = res || 'Nenhum funcionário cadastrado.';
+}
+
+function consultaId() {
+  const id = parseInt(prompt("Digite o ID do funcionário:"));
+
+  if (isNaN(id)) {
+    alert("ID inválido.");
+    return;
+  }
+
+  const func = funcionarios.find(f => f.id === id);
+
+  document.getElementById("resultado").innerHTML = func
+    ? `<p>ID: ${func.id}<br>Nome: ${func.nome}<br>Setor: ${func.setor}<br>Salário: R$${func.salario}</p>`
+    : "Funcionário não encontrado.";
+}
+
+
+function consultaSetor() {
+  const setor = prompt("Digite o setor:");
+  const encontrados = funcionarios.filter(f => f.setor.toLowerCase() === setor.toLowerCase());
+  const res = encontrados.map(f => `
+    <p>ID: ${f.id}<br>Nome: ${f.nome}<br>Setor: ${f.setor}<br>Salário: R$${f.salario}</p><hr>
+  `).join('');
+  document.getElementById("resultado").innerHTML = res || 'Nenhum funcionário encontrado para esse setor.';
+}
+
+function mostrarRemocao() {
+  document.getElementById("conteudo").innerHTML = `
+    <h2>Remover Funcionário</h2>
+    <input id="idRemover" placeholder="ID do Funcionário"><br>
+    <button onclick="removerFuncionario()">Remover</button>
+  `;
+}
+
+function removerFuncionario() {
+  const id = parseInt(document.getElementById("idRemover").value);
+  const index = funcionarios.findIndex(f => f.id === id);
+  if (index !== -1) {
+    funcionarios.splice(index, 1);
+    alert("Funcionário removido com sucesso.");
+  } else {
+    alert("ID não encontrado.");
+  }
+  mostrarRemocao();
+}
+
+
+
+
+
+
 
 window.addEventListener("DOMContentLoaded", () => {
   // Digitação letra por letra com <span>
