@@ -32,6 +32,69 @@ h2 {
 }
 
 
+@keyframes morph {
+
+  0%,
+
+  100% {
+    border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
+  }
+
+  33% {
+    border-radius: 72% 28% 48% 48% / 28% 28% 72% 72%;
+  }
+
+  66% {
+    border-radius: 100% 56% 56% 100% / 100% 100% 56% 56%;
+  }
+
+}
+
+.foto-perfil {
+  overflow: hidden;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
+  background: #8f44fd;
+  background-size: cover;
+  background-position: center;
+  animation: morph 3.75s Linear infinite;
+}
+
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #1e1e2f;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00f2ff;
+}
+
+button {
+  background: #00f2ff;
+  color: black;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00c0d4;
+}
+
+input {
+  padding: 8px;
+  margin: 5px;
+  width: 90%;
+  border-radius: 8px;
+  border: none;
+}
+
+
 
 
 
