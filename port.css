@@ -4,6 +4,29 @@ header {
 }
 
 
+
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #111;
+  color: #fff;
+  font-size: 0.9rem;
+  z-index: 1002;
+}
+
+.footer a {
+  color: #4fc3f7;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
 h3,
 h2 {
   text-align: center
