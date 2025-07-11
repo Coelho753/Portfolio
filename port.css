@@ -9,7 +9,6 @@ header {
   text-align: center;
   padding: 2rem 1rem;
   background-color: #000c1a;
-  color: var(--text-color);
   font-size: 0.9rem;
   z-index: 1002;
 }
@@ -354,6 +353,7 @@ main section {
   transition: transform 0.2s, opacity 0.5s ease;
   opacity: 0;
   visibility: hidden;
+  z-index:1001;
 }
 
 .card.revelado {
@@ -436,10 +436,6 @@ main section {
   z-index: 999;
 }
 
-.card {
-  z-index: 1001;
-  /* Garante que fique acima do canvas (z-index 999) */
-}
 
 
 
