@@ -8,7 +8,7 @@ header {
 .footer {
   text-align: center;
   padding: 2rem 1rem;
-  background-color: #000c1a;
+  background-color: var(--mar-bg-color);
   font-size: 0.9rem;
   z-index: 1002;
 }
