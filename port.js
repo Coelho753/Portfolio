@@ -3,16 +3,6 @@ const html = document.documentElement;
 const canvas = document.getElementById("canvas-raio");
 const ctx = canvas.getContext("2d");
 
-document.addEventListener("click", function (e) {
-  const cards = document.querySelectorAll(".card");
-  cards.forEach(card => {
-    const openBtn = document.querySelector(`[data-target="${card.id}"]`);
-    if (!card.contains(e.target) && !openBtn.contains(e.target)) {
-      card.classList.remove("active");
-    }
-  });
-});
-
 
 // Tema claro/escuro
 const savedTheme = localStorage.getItem("theme");
