@@ -248,6 +248,8 @@ main section {
 }
 
 .card {
+  touch-action: manipulation;
+  pointer-events: auto;
   background-color: var(--card-bg);
   padding: 20px;
   border-radius: 15px;
@@ -320,6 +322,8 @@ main section {
 }
 
 .card {
+  touch-action: manipulation;
+  pointer-events: auto;
   background-color: var(--card-bg);
   padding: 20px;
   border-radius: 15px;
