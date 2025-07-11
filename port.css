@@ -9,13 +9,13 @@ header {
   text-align: center;
   padding: 2rem 1rem;
   background-color: #000c1a;
-  color: var(--text-color)
+  color: var(--text-color);
   font-size: 0.9rem;
   z-index: 1002;
 }
 
 .footer a {
-  color: var(--text-color)
+  color: var(--text-color);
   text-decoration: none;
 }
 
