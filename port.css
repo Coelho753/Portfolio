@@ -396,6 +396,9 @@ main section {
   color: var(--text-color);
 }
 
+.card.mostrar .detalhes {
+  display: block;
+}
 
 
 
