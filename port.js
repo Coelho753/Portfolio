@@ -3,6 +3,11 @@ const html = document.documentElement;
 const canvas = document.getElementById("canvas-raio");
 const ctx = canvas.getContext("2d");
 
+document.addEventListener("click", function (e) {
+  console.log("Clique detectado: ", e.target);
+});
+
+
 // Tema claro/escuro
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
