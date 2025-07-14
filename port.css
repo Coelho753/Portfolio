@@ -119,13 +119,23 @@ input {
   border: none;
 }
 
-.c1 {
-  position: relative;
-  width: 350px;
-  padding: 10px;
-  left: auto;
-  right: auto;
+.galeria-certificados {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
 }
+
+.c1 {
+  width: 380px;
+  max-width: 90%;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(169, 149, 238, 0.637);
+  object-fit: contain;
+}
+
 
 
 
@@ -617,4 +627,33 @@ main section {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+@media (max-width: 600px) {
+  .grid-projetos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 95%;
+    width: 90vw;
+    margin: 10px auto;
+    left: 0;
+    right: 0;
+  }
+}
+
+.header-centralizado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.foto-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }

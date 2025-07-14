@@ -239,8 +239,8 @@ window.addEventListener('scroll', () => {
 
 
   // Reduzir opacidade do texto
-  texto.style.opacity = 1 - progress;
-  texto.style.transform = `translateX(${progress * 40}px)`; // move um pouco
+  //texto.style.opacity = 1 - progress;
+  //texto.style.transform = `translateX(${progress * 40}px)`; // move um pouco
 });
 
 
