@@ -8,7 +8,6 @@ header {
 .footer {
   text-align: center;
   padding: 2rem 1rem;
-  background-color: var(--mar-bg-color);
   font-size: 0.9rem;
   z-index: 1002;
 }
@@ -22,8 +21,14 @@ header {
   text-decoration: underline;
 }
 
+h1 {
+  text-align: center;
+}
 
-
+h4 {
+  text-align: center;
+  height: 100px;
+}
 
 
 h3,
@@ -38,14 +43,6 @@ h2 {
   transition: all 0.3s ease;
 }
 
-.foto-perfil {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #0a0938;
-  transition: all 0.3s ease;
-}
 
 .texto-apresentacao {
   font-size: 2rem;
@@ -76,11 +73,17 @@ h2 {
   overflow: hidden;
   width: 16rem;
   height: 16rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #040194;
   border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
-  background: #8f44fd;
+  background: #0703f8;
   background-size: cover;
   background-position: center;
   animation: morph 3.75s Linear infinite;
+  position: relative;
+  left: auto;
+  right: auto;
 }
 
 
@@ -116,8 +119,13 @@ input {
   border: none;
 }
 
-
-
+.c1 {
+  position: relative;
+  width: 350px;
+  padding: 10px;
+  left: auto;
+  right: auto;
+}
 
 
 
@@ -154,12 +162,6 @@ main {
   max-width: 600px;
 }
 
-#contato {
-  background-color: #1d008600;
-  padding: 40px 20px;
-  text-align: center;
-  border-radius: 12px;
-}
 
 form {
   display: flex;
@@ -192,11 +194,13 @@ button:hover {
 }
 
 .redes-sociais {
+  text-align: center;
   margin-top: 20px;
 }
 
 .redes-sociais a {
-  color: #f5f5f5;
+  text-align: center;
+  color: var(--text-color);
   margin: 0 10px;
   text-decoration: none;
   font-weight: bold;
@@ -353,7 +357,7 @@ main section {
   transition: transform 0.2s, opacity 0.5s ease;
   opacity: 0;
   visibility: hidden;
-  z-index:1001;
+  z-index: 1001;
 }
 
 .card.revelado {
@@ -441,18 +445,19 @@ main section {
 
 
 #marCanvas {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  /* Só desenha o que o usuário vê */
   z-index: -2;
   pointer-events: none;
   background-color: var(--mar-bg-color);
-  transform: translateY(100%);
-  /* começa escondido abaixo da tela */
-  transition: transform 0.3s ease-out;
+
 }
+
+
 
 
 

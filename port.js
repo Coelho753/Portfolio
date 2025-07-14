@@ -3,7 +3,6 @@ const html = document.documentElement;
 const canvas = document.getElementById("canvas-raio");
 const ctx = canvas.getContext("2d");
 
-
 // Tema claro/escuro
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
@@ -111,8 +110,6 @@ setInterval(raioEmCard, 3500);
 
 
 
-// Revelar e ativar clique dos cards
-// Revelar cards apenas ao rolar a página
 function revelarCardsScroll() {
   const cards = document.querySelectorAll(".card");
   const alturaTela = window.innerHeight;
@@ -123,7 +120,15 @@ function revelarCardsScroll() {
       card.classList.add("revelado");
     }
   });
+
+  // 👇 Força revelação no mobile
+  if (window.innerWidth <= 600) {
+    cards.forEach(card => card.classList.add("revelado"));
+  }
 }
+
+
+
 
 window.addEventListener("scroll", revelarCardsScroll);
 window.addEventListener("DOMContentLoaded", revelarCardsScroll);
@@ -180,7 +185,7 @@ window.addEventListener("DOMContentLoaded", () => {
       ctxMar.moveTo(0, altura);
 
       for (let x = 0; x <= largura; x++) {
-        const y = Math.sin((x + tempoMar * (1 + j * 0.5)) * 0.008 + j) * (10 + j * 8) + altura * 0.6 + j * 15;
+        const y = Math.sin((x + tempoMar * (3 + j * 0.5)) * 0.008 + j) * (50 + j * 10) + altura * 0.1 + j * 25;
         ctxMar.lineTo(x, y);
       }
 
@@ -239,8 +244,8 @@ window.addEventListener('scroll', () => {
 });
 
 
-let funcionarios = JSON.parse(localStorage.getItem("funcionarios")) || [];
-let idGlobal = parseInt(localStorage.getItem("ultimoId")) || 5279235;
+let funcionarios = [];
+let idGlobal = 5279235;
 
 function mostrarCadastro() {
   document.getElementById("conteudo").innerHTML = `
@@ -267,9 +272,6 @@ function cadastrarFuncionario() {
   };
 
   funcionarios.push(funcionario);
-  localStorage.setItem("funcionarios", JSON.stringify(funcionarios));
-  localStorage.setItem("ultimoId", idGlobal);
-
   alert(`Funcionário ${nome} cadastrado com sucesso!`);
   mostrarCadastro();
 }
@@ -293,13 +295,19 @@ function consultarTodos() {
 
 function consultaId() {
   const id = parseInt(prompt("Digite o ID do funcionário:"));
-  if (isNaN(id)) return alert("ID inválido.");
+
+  if (isNaN(id)) {
+    alert("ID inválido.");
+    return;
+  }
 
   const func = funcionarios.find(f => f.id === id);
+
   document.getElementById("resultado").innerHTML = func
     ? `<p>ID: ${func.id}<br>Nome: ${func.nome}<br>Setor: ${func.setor}<br>Salário: R$${func.salario}</p>`
     : "Funcionário não encontrado.";
 }
+
 
 function consultaSetor() {
   const setor = prompt("Digite o setor:");
@@ -323,7 +331,6 @@ function removerFuncionario() {
   const index = funcionarios.findIndex(f => f.id === id);
   if (index !== -1) {
     funcionarios.splice(index, 1);
-    localStorage.setItem("funcionarios", JSON.stringify(funcionarios));
     alert("Funcionário removido com sucesso.");
   } else {
     alert("ID não encontrado.");
@@ -331,33 +338,9 @@ function removerFuncionario() {
   mostrarRemocao();
 }
 
-// Impedir que o clique nos botões feche o card
-window.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".card .detalhes").forEach(detalhe => {
-    detalhe.addEventListener("click", e => e.stopPropagation());
-  });
-});
 
-// Mostrar e animar cards ao clicar (mantido)
-document.querySelectorAll(".card").forEach(card => {
-  card.addEventListener("click", (event) => {
-    const ignorar = ["BUTTON", "INPUT", "TEXTAREA", "SELECT", "LABEL"];
-    if (
-      ignorar.includes(event.target.tagName) ||
-      event.target.closest("#conteudo") ||
-      event.target.closest(".detalhes")
-    ) {
-      event.stopPropagation();
-      return;
-    }
 
-    card.classList.toggle("mostrar");
-    if (card.classList.contains("mostrar")) {
-      card.classList.add("eletrizando");
-      setTimeout(() => card.classList.remove("eletrizando"), 1400);
-    }
-  });
-});
+
 
 
 
