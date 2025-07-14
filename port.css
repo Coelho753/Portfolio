@@ -509,12 +509,35 @@ main section {
 
 
 
+.controles-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  /* ou altura fixa para a animação */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.controle-s,
-.controle-p {
+.controle-p,
+.controle-s {
   position: absolute;
-  top: 0;
-  left: 0;
+  bottom: 0;
+  opacity: 0;
+  animation-delay: 3s;
+}
+
+/* P cai de cima */
+.controle-p {
+  transform: translateX(-50%);
+  animation: cair 6.5s forwards;
+}
+
+/* S sobe de baixo */
+.controle-s {
+  transform: translateX(50%);
+  animation: subir 6.5s forwards;
+
 }
 
 
@@ -637,7 +660,7 @@ main section {
   }
 
   .card {
-    max-width: 95%;
+    max-width: 80%;
     width: 90vw;
     margin: 10px auto;
     left: 0;
