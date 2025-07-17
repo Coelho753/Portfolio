@@ -50,6 +50,13 @@ h2 {
   transition: all 0.3s ease;
 }
 
+.apresentacao {
+  text-align: center;
+  box-shadow: #4d4c4c;
+  padding: 10px;
+  border-radius: 15% 12% 30% 20% / 10% 10% 20% 15%;
+  background-color: #4d4c4c48;
+}
 
 @keyframes morph {
 
