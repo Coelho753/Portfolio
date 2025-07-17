@@ -143,6 +143,10 @@ input {
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(169, 149, 238, 0.637);
   object-fit: contain;
+  left: auto;
+  right: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 
@@ -761,12 +765,14 @@ main section {
   .c2 {
     left: auto;
     right: auto;
-    width: 120px;
+    margin: 0 auto;
+    display: block;
+    width: 90px;
     max-width: 90%;
-    padding: 10px;
-    border-radius: 12px;
+    padding: 15px;
     object-fit: contain;
-    transform: scale(2.5);
+    transform: scale(2.3);
+    box-shadow: none;
   }
 
   .simbolos {
