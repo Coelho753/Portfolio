@@ -3,7 +3,7 @@ header {
   padding: 20px;
 }
 
-button {
+button1 {
   padding: 17px 40px;
   border-radius: 50px;
   border: 0;
@@ -15,14 +15,14 @@ button {
   transition: all .5s ease;
 }
 
-button:hover {
+button1:hover {
   letter-spacing: 3px;
   background-color: (IMG);
   color: #fff;
   box-shadow: #5d18dc 0px 7px 29px 0px;
 }
 
-button:active {
+button1:active {
   letter-spacing: 3px;
   background-color:()
   color: #fff;
