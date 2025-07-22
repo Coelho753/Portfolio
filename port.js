@@ -218,6 +218,21 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.querySelectorAll('a[href="#destino"]').forEach(link => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const destino = document.getElementById("destino");
+
+    // Revela manualmente o card antes de rolar
+    destino.classList.add("revelado");
+
+    // Scroll suave
+    destino.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+});
+
+
 
 
 

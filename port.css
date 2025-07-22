@@ -3,11 +3,20 @@ header {
   padding: 20px;
 }
 
-button1 {
-  padding: 17px 40px;
-  border-radius: 50px;
-  border: 0;
-  background-color: (IMG);
+
+.button1 {
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 17px 20px;
+  border-radius: 50%;
+  border: none;
   box-shadow: #0000000d 0 0 8px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -15,22 +24,38 @@ button1 {
   transition: all .5s ease;
 }
 
-button1:hover {
+.button1:hover {
   letter-spacing: 3px;
-  background-color: (IMG);
-  color: #fff;
+  color: #ffffff;
   box-shadow: #5d18dc 0px 7px 29px 0px;
 }
 
-button1:active {
+.button1:active {
   letter-spacing: 3px;
-  background-color:()
   color: #fff;
   box-shadow: #5d18dc 0px 7px 29px 0px;
   transform: translateY(10px);
   transition: 100ms;
 }
 
+
+.icon-button {
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.icon-button .icon {
+  width: 24px;
+  height: 24px;
+}
 
 
 .footer {
@@ -80,10 +105,10 @@ h2 {
 
 .apresentacao {
   text-align: center;
-  box-shadow: #4d4c4c;
+  box-shadow: var(--card-bg);
   padding: 10px;
   border-radius: 15% 12% 30% 20% / 10% 10% 20% 15%;
-  background-color: #4d4c4c48;
+  background-color: var(--card-bg);
 }
 
 @keyframes morph {
@@ -861,4 +886,8 @@ main section {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
 }
