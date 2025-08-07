@@ -357,6 +357,24 @@ function removerFuncionario() {
 
 
 
+document.querySelectorAll('.button1 a[href="#destino"]').forEach(link => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const card = document.getElementById("destino");
+
+    // Revela o card e força scroll suave
+    card.classList.add("revelado");
+    card.classList.add("mostrar");
+
+    // Animação especial
+    card.classList.add("eletrizando");
+    setTimeout(() => card.classList.remove("eletrizando"), 1400);
+
+    // Rola até o card
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+});
 
 
 window.addEventListener("DOMContentLoaded", () => {

@@ -22,6 +22,7 @@ header {
   letter-spacing: 1.5px;
   font-size: 25px;
   transition: all .5s ease;
+  z-index: 1001;
 }
 
 .button1:hover {
@@ -327,6 +328,61 @@ body {
   position: relative;
 }
 
+.fll-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0d1117;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+  transition: all 1.5 ease-out;
+  opacity: 1;
+  animation: reduzir 2s ease forwards;
+  animation-delay: 4s;
+  pointer-events: none;
+}
+
+.ctt-overlay {
+  color: white;
+  text-align: center;
+  padding: 20px;
+  max-width: 80%;
+  position: absolute;
+  top: 65%;
+}
+
+.title-overlay {
+  display: flexbox;
+  animation: fadein 2s ease-in-out;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reduzir {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    z-index: 0;
+    opacity: 0;
+  }
+}
 
 header {
   display: flex;
@@ -844,6 +900,15 @@ main section {
 
   #ps-particulas {
     height: 200px;
+  }
+
+  .ctt-overlay {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    max-width: 80%;
+    position: absolute;
+    top: 65%;
   }
 }
 
