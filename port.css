@@ -335,7 +335,7 @@ body {
   left: 20%;
   text-align: center;
   position: sticky;
-  z-index: 1000;
+  z-index: 1003;
   opacity: 5;
   transition: all 2 ease-out;
   animation: fadein 2s ease forwards;
