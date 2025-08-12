@@ -10,6 +10,7 @@ if (savedTheme) {
   toggleBtn.textContent = savedTheme === "dark" ? "🌞 Modo Claro" : "🌙 Modo Escuro";
 }
 
+
 toggleBtn.addEventListener("click", () => {
   const isDark = html.getAttribute("data-theme") === "dark";
   const newTheme = isDark ? "light" : "dark";
@@ -435,3 +436,21 @@ window.addEventListener("DOMContentLoaded", () => {
     desenhar();
   }
 });
+
+window.addEventListener("DOMContentLoaded", () => {
+  const saudacao = document.getElementById("bd");
+  const agora = new Date();
+  const hora = agora.getHours();
+  let mensagem = "";
+
+  if (hora >= 5 && hora < 12) {
+    mensagem = "Bom dia! Seja bem vindo ao meu Portfólio";
+  } else if (hora >= 12 && hora < 18) {
+    mensagem = "Boa tarde! Seja bem vindo ao meu Portfólio";
+  } else {
+    mensagem = "Boa noite! Seja bem vindo ao meu Portfólio";
+  }
+
+  if (saudacao) saudacao.textContent = mensagem;
+});
+

@@ -328,6 +328,20 @@ body {
   position: relative;
 }
 
+#bd {
+  flex-direction: column;
+  display: flex;
+  top: 70%;
+  left: 20%;
+  text-align: center;
+  position: sticky;
+  z-index: 1000;
+  opacity: 5;
+  transition: all 2 ease-out;
+  animation: fadein 2s ease forwards;
+}
+
+
 .fll-overlay {
   position: fixed;
   top: 0;
@@ -353,13 +367,16 @@ body {
   padding: 20px;
   max-width: 80%;
   position: absolute;
-  top: 65%;
+  top: 74%;
 }
 
 .title-overlay {
-  display: flexbox;
-  animation: fadein 2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadein 2s ease forwards;
 }
+
 
 @keyframes fadein {
   from {
@@ -908,10 +925,9 @@ main section {
     padding: 20px;
     max-width: 80%;
     position: absolute;
-    top: 65%;
+    top: 82%;
   }
 }
-
 
 @keyframes cairm {
   0% {
