@@ -29,14 +29,18 @@ window.addEventListener("resize", resizeCanvas);
 
 // ⚡ Desenha o raio
 function desenharRaio(x, y) {
+  const raioCor = getComputedStyle(document.documentElement).getPropertyValue('--raio').trim();
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = "white";
+  ctx.strokeStyle = raioCor;
   ctx.lineWidth = 2;
-  ctx.shadowColor = "white";
+  ctx.shadowColor = raioCor;
   ctx.shadowBlur = 15;
 
   ctx.beginPath();
   ctx.moveTo(x, 0);
+  // ... resto do código igual
+
 
   let atualX = x;
   let atualY = 0;

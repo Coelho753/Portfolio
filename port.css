@@ -138,9 +138,9 @@ h2 {
   height: 16rem;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #040194;
+  border: 4px solid var(--perfil);
   border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
-  background: #0703f8;
+  background: var(--perfil);
   background-size: cover;
   background-position: center;
   animation: morph 3.75s Linear infinite;
@@ -299,6 +299,7 @@ button:hover {
   --button-text: #ffffff;
   --mar-bg-color: #000c1a;
   --raio: #ffffff;
+  --perfil: #0703f8;
 }
 
 [data-theme="light"] {
@@ -309,6 +310,7 @@ button:hover {
   --button-text: #1a1414;
   --mar-bg-color: #ffffff;
   --raio: #0a0a0a;
+  --perfil: #0a0a0a;
 }
 
 
